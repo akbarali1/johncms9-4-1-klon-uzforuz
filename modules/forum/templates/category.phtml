@@ -1,21 +1,30 @@
 <?php
-// Подключаем основной шаблон сайта
-$this->layout(
-  'system::layout/uzfor',
-  [
-    'title'      => $data['title'], // Передаем заголовок страницы в тег title
-    'page_title' => $data['title'], // Передаем заголовок страницы в тег h1
-  ]
-);
-?>
+  // Подключаем основной шаблон сайта
+  $this->layout(
+    'system::layout/uzfor',
+    [
+      'title'      => $data['title'], // Передаем заголовок страницы в тег title
+      'page_title' => $data['title'], // Передаем заголовок страницы в тег h1
+    ]
+  );
+  $themes = $data['themes'];
+  ?>
 <div class="menu"><img style="vertical-align: -3px;" src="https://uzfor.uz/images/create.png"> 
-<a href="../admin/adtheme/<?=$data['forum_cat']->id?>/">Yangi mavzu yaratish</a>
+  <a href="../admin/adtheme/<?=$data['forum_cat']->id?>/">Yangi mavzu yaratish</a>
 </div>
 <div class="phdr"><b><?=$data['forum_cat']->name?> (0)</b></div>
-
 <?php if (!empty($data['errors'])) {
-    echo '<div class="menu">';
-    echo $data['errors'];
-    echo '</div>';
-      } ?>
-
+  echo '<div class="menu">';
+  echo $data['errors'];
+  echo '</div>';
+    } ?>
+<?php foreach ($themes as $theme): ?>
+<div class="menu">
+  <img src="https://uzfor.uz/images/forum.png" width="16" height="16" style="vertical-align: -3px;">
+  <a href="<?=$theme['id']?>/"><b><?=$theme['name']?></b></a> (0)<br>
+  Muallif: <a href="<?=$config['homeurl']?>/profile/?user=<?=$theme['user_id']?>"><b><?=$theme['user_name']?></b></a><br>
+  Javob berdi: <a href="<?=$config['homeurl']?>/profile/?user=<?=$theme['user_id']?>"><b>Test</b></a>
+  <span class="gray">(<?=$theme['time']?>)</span><br>
+  Sahifa: <a href="<?=$theme['id']?>/">&nbsp;&gt;&gt;&gt;</a>
+</div>
+<?php endforeach;?>

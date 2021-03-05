@@ -32,7 +32,7 @@ $category = $route['category'] ?? '';
 $config = di('config')['johncms'];
 
 if (! empty($id)) {
-    require 'lib/mavzu.php';
+    require 'includes/theme.php';
 } elseif (! empty($category)) {
     require 'includes/category.php';
 }else{

@@ -12,6 +12,12 @@ defined('_IN_JOHNCMS') || die('Error: restricted access');
 
 /** @var User $user */
 $user = di(User::class);
+$config = di('config')['johncms'];
+
+if (!$user->isValid()) {
+    header('Location: '.$config['homeurl'].'/login/');
+    exit;
+}
 
 /** @var Render $view */
 $view = di(Render::class);
@@ -22,7 +28,6 @@ $nav_chain = di(NavChain::class);
 /** @var Request $request */
 $request = di(Request::class);
 
-$config = di('config')['johncms'];
 $route = di('route');
 $connection = \Illuminate\Database\Capsule\Manager::connection();
 
