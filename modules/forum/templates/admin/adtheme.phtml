@@ -1,0 +1,35 @@
+<?php
+  // Подключаем основной шаблон сайта
+  $this->layout(
+    'system::layout/uzfor',
+    [
+      'title'      => $data['title'], // Передаем заголовок страницы в тег title
+      'page_title' => $data['title'], // Передаем заголовок страницы в тег h1
+    ]
+  );
+  ?>
+<div class="maintxt">
+  <form name="form" action="view.php?act=nt&amp;id=63642" method="post">
+    <div class="phdr"><b>Mavzu ochish</b> | <b>Aforizmlar</b></div>
+    <div class="menu">
+      Podforum:
+      <div class="br"></div>
+      <select disabled="disabled">
+        <option>Aforizmlar</option>
+      </select>
+      <div class="br"></div>
+      Mavzu nomini kiriting:<span style="color: red;">*</span>
+      <div class="br"></div>
+      <input type="text" size="20" maxlength="100" name="th" value="">
+      <p></p>
+      <div class="br"></div>
+      Mavzuga birinchi postni kiriting:<span style="color: red;">*</span>
+      <div class="br"></div>
+      <textarea rows="3" name="msg"></textarea>
+      <p></p>
+      <p></p>
+      <p><input type="submit" name="submit" value="Mavzuni ochish" style="cursor: pointer;"> <input type="hidden" name="token" value="4782"></p>
+    </div>
+  </form>
+  <div class="menu"><span style="color: red;">*</span> - To'ldirish majburiy bo'lgan maydonlar</div>
+</div>

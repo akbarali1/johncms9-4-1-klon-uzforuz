@@ -18,6 +18,7 @@ $this->layout(
 <?php if (! empty($errors['csrf_token'])): ?>
     <div class="alert alert-danger"><?= implode(', ', $errors['csrf_token']) ?></div>
 <?php endif ?>
+
 <form action="/guestbook/otvet?id=<?= $id ?>" method="post">
     <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>"/>
     <p>
@@ -26,7 +27,7 @@ $this->layout(
     <p>
     <div class="form-group">
         <label for="message"><?= __('Reply') ?></label>
-        <div><?= $bbcode ?></div>
+        <div><?= $data['bbcode'] ?></div>
         <textarea rows="<?= $user->config->fieldHeight ?>" name="message" id="message" class="form-control"><?= $this->e($message->otvet) ?></textarea>
         <?php if (! empty($errors['message'])): ?>
             <div class="invalid-feedback d-block"><?= implode(', ', $errors['message']) ?></div>

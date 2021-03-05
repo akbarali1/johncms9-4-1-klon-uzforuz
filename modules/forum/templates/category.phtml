@@ -1,0 +1,21 @@
+<?php
+// Подключаем основной шаблон сайта
+$this->layout(
+  'system::layout/uzfor',
+  [
+    'title'      => $data['title'], // Передаем заголовок страницы в тег title
+    'page_title' => $data['title'], // Передаем заголовок страницы в тег h1
+  ]
+);
+?>
+<div class="menu"><img style="vertical-align: -3px;" src="https://uzfor.uz/images/create.png"> 
+<a href="../admin/adtheme/<?=$data['forum_cat']->id?>/">Yangi mavzu yaratish</a>
+</div>
+<div class="phdr"><b><?=$data['forum_cat']->name?> (0)</b></div>
+
+<?php if (!empty($data['errors'])) {
+    echo '<div class="menu">';
+    echo $data['errors'];
+    echo '</div>';
+      } ?>
+
