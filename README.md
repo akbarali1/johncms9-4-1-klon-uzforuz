@@ -18,8 +18,8 @@ https://uzfor.uz/view.php?id=90807&page=1 mavzusi uchun yozildi
 
 ## O`rnatish
 1. Kodni zip shaklida yuklab oling.
-2. O'rnatmoqchi bo`lgan sahingizning bor shahifasiga zipdan chiqaring
-2.1. `database.sql` faylini DBga o`rnating
-3. `johncms9-4-1-klon-uzforuz/config/autoload/database.local.php` fayliga DB ma'lumotlarini yozing
-4. `johncms9-4-1-klon-uzforuz/config/autoload/system.local.php` fayliga saytning ma'lumotlarini yozing
-5. Admin logini `admin` paroli `uzfor`
+2. O'rnatmoqchi bo'lgan sahingizning bor shahifasiga zipdan chiqaring
+3. `database.sql` faylini DBga o'rnating
+4. `johncms9-4-1-klon-uzforuz/config/autoload/database.local.php` fayliga DB ma'lumotlarini yozing
+5. `johncms9-4-1-klon-uzforuz/config/autoload/system.local.php` fayliga saytning ma'lumotlarini yozing
+6. Admin logini `admin` paroli `uzfor`
