@@ -32,7 +32,9 @@ if (!$forum_theme) {
     $theme = $forum_theme;
     $errors = '';
 }
-
+if (empty($themes)) {
+    $themes = '';
+}
 
 
 $data = [

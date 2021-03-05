@@ -18,6 +18,9 @@
   echo $data['errors'];
   echo '</div>';
     } ?>
+    <?php if (!empty($themes)) { ?>
+     
+     
 <?php foreach ($themes as $theme): ?>
 <div class="menu">
   <img src="https://uzfor.uz/images/forum.png" width="16" height="16" style="vertical-align: -3px;">
@@ -28,3 +31,9 @@
   Sahifa: <a href="<?=$theme['id']?>/">&nbsp;&gt;&gt;&gt;</a>
 </div>
 <?php endforeach;?>
+
+<?php }else{
+  echo '<div class="menu">';
+  echo 'Bu kategoriyada mavzu ochilmagan';
+  echo '</div>';
+} ?>
