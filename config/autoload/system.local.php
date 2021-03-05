@@ -30,6 +30,11 @@ return array (
     'lng' => 'uz',
     'lng_list' => 
     array (
+      'en' => 
+      array (
+        'name' => 'English',
+        'version' => 1.0,
+      ),
       'ar' => 
       array (
         'name' => 'Arabic',
@@ -38,11 +43,6 @@ return array (
       'az' => 
       array (
         'name' => 'Azərbaycan dili',
-        'version' => 1.0,
-      ),
-      'en' => 
-      array (
-        'name' => 'English',
         'version' => 1.0,
       ),
       'id' => 
@@ -105,7 +105,7 @@ return array (
     'mod_down_comm' => true,
     'meta_key' => 'johncms',
     'meta_desc' => 'Powered by JohnCMS http://johncms.com',
-    'skindef' => 'default',
+    'skindef' => 'uzfor',
     'timeshift' => 3,
     'meta_title' => 'JohnCMS',
     'user_email_required' => 1,

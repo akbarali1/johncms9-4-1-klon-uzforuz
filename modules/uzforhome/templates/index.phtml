@@ -1,0 +1,18 @@
+<?php
+  $this->layout('system::layout/uzfor');
+//  d($data);
+  $fotumcat = $data['forum_cat']
+  ?>
+<?php foreach ($fotumcat as $forumc): ?>
+
+<div class="phdr"><b><?=$forumc['name']?></b></div>
+<?php foreach ($forumc['ichkicat'] as $ichcat): ?>
+
+<div class="menu">
+<img class="yashirish" src="https://uzfor.uz/images/category/45.jpg?v=2" width="32" height="32" alt="#" title="<?=$ichcat->name?>" style="float: left;padding-right: 6px;margin-top: 4px;">
+  <a title="Talaba va o'quvchilar" href="https://uzfor.uz/45-talaba-va-oquvchilar.html"><?=$ichcat->name?></a> [0/0]<br>
+  <small title="<?=$ichcat->tushuncha?>" style="color: gray;"><?=$ichcat->tushuncha?></small>
+</div>
+
+<?php endforeach;?>
+<?php endforeach;?>
