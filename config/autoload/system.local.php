@@ -109,6 +109,6 @@ return array (
     'timeshift' => 3,
     'meta_title' => 'JohnCMS',
     'user_email_required' => 1,
-    'user_email_confirmation' => 1,
+    'user_email_confirmation' => 0,
   ),
 );

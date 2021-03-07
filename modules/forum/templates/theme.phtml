@@ -11,6 +11,8 @@
   $forum_cat = $data['forum_cat'];
   $tashqi_cat = $data['tashqi_cat'];
   $create_user_info = $data['create_user_info'];
+  $messages = $data['messages'];
+//  d($forum_theme);
   ?>
 <style>
   .h2_title_uzfor {
@@ -21,60 +23,137 @@
   margin-top: 0px;
   margin-bottom: 10px;
   }
-</style>
-<div class="maintxt">
-  <div class="menu">
-    <a href="<?=$config['homeurl']?>"><b><?=$tashqi_cat->name?></b></a> |
-    <a href="<?=$config['homeurl']?>forum/<?=$forum_cat->code?>/"><b><?=$forum_cat->name?></b></a> 
-  </div>
-  <h2 class="h2_title_uzfor"><?=$data['title']?></h2>
-  <style>
-    .heart {
+  
+.heart {
     cursor: pointer;
     width: 20px;
     height: 30px;
-    background: url(/images/svg/like_.svg) no-repeat;
+    background: url(https://uzfor.uz/images/svg/like_.svg) no-repeat;
     background-size: contain;
     float: right;
-    }
-    .heart_active {
+}
+.heart_active {
     cursor: pointer;
     width: 30px;
     height: 30px;
-    background: url(/images/svg/like.svg) no-repeat;
+    background: url(https://uzfor.uz/images/svg/like.svg) no-repeat;
     background-size: 17px;
     float: right;
     text-align: right;
     line-height: 13px;
     color: #ff3347;
-    }
-    .heart:hover {
-    background-image: url(/images/svg/like.svg);
-    }
+}
+.heart:hover {
+    background-image: url(https://uzfor.uz/images/svg/like.svg);
+}
+</style>
+<div class="maintxt">
+  <div class="menu">
+    <a href="<?=$config['homeurl']?>"><b><?=$tashqi_cat->name?></b></a> |
+    <a href="<?=$config['homeurl']?>/forum/<?=$forum_cat->code?>/"><b><?=$forum_cat->name?></b></a> 
+  </div>
+  <h2 class="h2_title_uzfor"><?=$data['title']?></h2>
+  <style>
   </style>
   <div class="phdr"><b>Xabarlar</b></div>
+
+
   <div class="menu" style="border-bottom: 2px solid #e4e8ed;border-radius: 0;padding-top: 10px;" id="izoh90811">
     <a class="delava" href="/id1">
     <img width="37" height="37" style="float:left;border-radius: 40px;" src="https://uzfor.uz/files/users/photo/87_tmp_1548426402.jpg" alt=""></a>
     <div style="min-height:43px;margin-left:45px;">
-      <!-- <img style="width: 18px;vertical-align: -3px;" src="/images/svg/panel.svg"> <img src="/images/group/1.png" width="13" height="13" style="margin-bottom: -2px;" alt="*"> --><b><a href="<?=$config['homeurl']?>/profile/?user=<?=$theme['user_id']?>">Akbarali</a></b> <b>[0]</b> <font color="red">[off]</font>
+      <b><a href="<?=$config['homeurl']?>/profile/?user=<?=$forum_theme->user_id?>"><?=$data['username']?></a></b> <b>[0]</b> <font color="red">[off]</font>
       <a href="?act=plyus&amp;id=90811&amp;page=1" onclick="LaykBosish()">
         <div class="heart"></div>
       </a>
-      <script>
-        function LaykBosish() {
-          confirm("Ushbu xabarni ijobiy deb baholaysizmi?");
-        }
-      </script><a href="#">Javob</a> <span style="color: #BFC6CF;">|</span> 
-      <a href="#">Sitata</a><br><span><a href="#">#3</a></span> 
+     <a href="#" onclick="reply_to_post('<?=$data['username']?>')">Javob</a> <span style="color: #BFC6CF;">|</span>  | 
+      <a href="#">Sitata</a> | 
+      <span><a href="#">#mavzu</a></span>  |
       <time><?=$forum_theme->time?></time><br>
-    </div>
-    <div style="padding-top: 4px;"></div>
+    </div><hr>
+    <div style="padding-top: 8px;"></div>
     <div>
       <div data-role="commentContent" data-controller="core.front.core.lightboxedImages" style="padding: 0px 0px 10px 0px;"><?=$forum_theme->theme_text?></div>
     </div>
+  </div>
+
+<? foreach ($messages as $message):?>
+  <div class="menu" style="border-bottom: 2px solid #e4e8ed;border-radius: 0;padding-top: 10px;" id="izoh90811">
+    <a class="delava" href="/id1">
+    <img width="37" height="37" style="float:left;border-radius: 40px;" src="https://uzfor.uz/files/users/photo/87_tmp_1548426402.jpg" alt=""></a>
+    <div style="min-height:43px;margin-left:45px;">
+      <b><a href="<?=$config['homeurl']?>/profile/?user=<?=$message['user_id']?>"><?=$message['name']?></a></b> <b>[0]</b> <font color="red">[off]</font>
+      <a href="?act=plyus&amp;id=90811&amp;page=1" onclick="LaykBosish()">
+        <div class="heart"></div>
+      </a>
+     <a href="#" onclick="reply_to_post('<?=$message['name']?>')">Javob</a> <span style="color: #BFC6CF;">|</span>  | 
+      <a href="#">Sitata</a> <br>
+      <span><a href="#">#<?=$message['id']?></a></span>  |
+      <time><?=$message['date']?></time><br>
+    </div>
+    <div style="padding-top: 8px;"></div>
     <div>
-      <!--<i><b style="color: #525252;">+ (1):</b> <a href="https://uzfor.uz/@zetpro2003">AkmyradoffSoft</a>, </i>-->
+      <div data-role="commentContent" data-controller="core.front.core.lightboxedImages" style="padding: 0px 0px 10px 0px;"><?=$message['text']?></div>
     </div>
   </div>
+<? endforeach;?>
+<br>
+<!-- sahiflalash -->
+<?= $data['pagination'] ?>
+
+  <div class="phdr" id="end"><b>Mavzuga javob yozish</b><a id="down"></a><a href="#up"></a></div>
+  <div class="menu">
+    <form name="form" action="../../admin/write/" method="post">
+      <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>"/>
+      <input type="hidden" name="themeid" value="<?= $forum_theme->id ?>"/>
+      <div class="form-group">
+        <div>
+          <?= $data['bbcode'] ?>
+        </div>
+        <textarea rows="<?= $user->config->fieldHeight ?>" name="message" id="message" required
+          class="form-control"></textarea>
+        <div class="text-muted">Max: 5000</div>
+      </div>
+      <p><input type="submit" value="Yozish" style="cursor: pointer;">
+    </form>
+  </div>
 </div>
+
+<script src="\themes\default\assets\js\manifest.js?v=1610994488"></script>
+<script src="\themes\default\assets\js\vendor.js?v=1610994488"></script>
+<script src="\themes\default\assets\js\app.js?v=1610994488"></script>
+<script >
+ function reply_to_post(user_name)
+    {
+        event.preventDefault();
+        $('#message').htmlcode('<b>' + user_name + '</b>, ');
+        $('body,html').animate({scrollTop: 100}, 500);
+    }
+</script>
+
+
+<style>
+/*! CSS Used from: https://johncms.com/themes/default/assets/css/app.css?v=1610993188 */
+*,:after,:before{box-sizing:border-box;}
+nav{display:block;}
+ul{margin-bottom:1rem;}
+ul{margin-top:0;}
+a{color:#66615b;text-decoration:none;background-color:transparent;}
+a:hover{color:#3e3b37;text-decoration:underline;}
+.pagination{display:flex;padding-left:0;list-style:none;border-radius:.25rem;}
+.page-link{position:relative;display:block;padding:.5rem .75rem;margin-left:-1px;line-height:1.25;color:#66615b;background-color:#fff;border:1px solid #dee2e6;}
+.page-link:hover{z-index:2;color:#3e3b37;text-decoration:none;background-color:#e9ecef;border-color:#dee2e6;}
+.page-link:focus{z-index:3;outline:0;box-shadow:0 0 0 .2rem rgba(102,97,91,.25);}
+.page-item:first-child .page-link{margin-left:0;border-top-left-radius:.25rem;border-bottom-left-radius:.25rem;}
+.page-item:last-child .page-link{border-top-right-radius:.25rem;border-bottom-right-radius:.25rem;}
+.page-item.active .page-link{z-index:3;color:#fff;background-color:#66615b;border-color:#66615b;}
+@media print{
+*,:after,:before{text-shadow:none!important;box-shadow:none!important;}
+a:not(.btn){text-decoration:underline;}
+}
+@media (max-width:500px){
+.pagination span.page-link{display:none;}
+.pagination .page-link{font-size:.7rem;padding:.5rem;}
+.pagination .active .page-link{display:block;}
+}
+</style>

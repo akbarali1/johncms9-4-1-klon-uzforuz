@@ -48,6 +48,10 @@ switch ($act) {
         require 'admin/adtheme.php';
         break;
 
+    case 'write':
+        require 'admin/write.php';
+        break;
+
     default:
     echo 'default/';
        // header('Location: ../?');

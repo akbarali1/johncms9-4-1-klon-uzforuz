@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 05, 2021 at 06:56 PM
+-- Generation Time: Mar 07, 2021 at 06:00 PM
 -- Server version: 5.7.29-log
 -- PHP Version: 7.4.5
 
@@ -341,7 +341,7 @@ CREATE TABLE `cms_sessions` (
 --
 
 INSERT INTO `cms_sessions` (`session_id`, `ip`, `ip_via_proxy`, `browser`, `lastdate`, `sestime`, `views`, `movings`, `place`) VALUES
-('8eb98278bed4511b876e2e7abbf7c998', 2130706433, 0, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', 1614956987, 1614956987, 2, 2, '/login');
+('8eb98278bed4511b876e2e7abbf7c998', 2130706433, 0, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', 1615128144, 1615128043, 8, 3, '/login');
 
 -- --------------------------------------------------------
 
@@ -495,6 +495,13 @@ CREATE TABLE `email_messages` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `email_messages`
+--
+
+INSERT INTO `email_messages` (`id`, `priority`, `locale`, `template`, `fields`, `sent_at`, `created_at`, `updated_at`) VALUES
+(1, 1, 'uz', 'system::mail/templates/registration', '{\"email_to\":\"Akbarali@webschool.uz\",\"name_to\":\"Akbarali\",\"subject\":\"Registration on the website\",\"user_name\":\"Akbarali\",\"user_login\":\"Akbarali\",\"link_to_confirm\":\"http:\\/\\/uzfor.loc\\/registration\\/?act=confirm_email&id=2&code=email_6044e6159c1662.24720772\"}', '2021-03-07 14:41:33', '2021-03-07 14:41:25', '2021-03-07 14:41:33');
+
 -- --------------------------------------------------------
 
 --
@@ -594,15 +601,29 @@ CREATE TABLE `forum_messages` (
   `user_id` int(10) UNSIGNED NOT NULL,
   `user_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_agent` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ip` bigint(20) DEFAULT NULL,
-  `ip_via_proxy` bigint(20) DEFAULT NULL,
-  `pinned` tinyint(1) DEFAULT NULL,
   `editor_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `edit_time` int(11) DEFAULT NULL,
   `edit_count` int(11) DEFAULT NULL,
   `deleted` tinyint(1) DEFAULT NULL,
   `deleted_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `forum_messages`
+--
+
+INSERT INTO `forum_messages` (`id`, `topic_id`, `text`, `date`, `user_id`, `user_name`, `user_agent`, `editor_name`, `edit_time`, `edit_count`, `deleted`, `deleted_by`) VALUES
+(1, 2, 'salom', 1615126388, 1, 'admin', NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 2, 'Tewst uchun post   ﻿', 1615126430, 1, 'admin', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', NULL, NULL, NULL, NULL, NULL),
+(3, 2, 'Test uchun', 1615128154, 2, 'Akbarali', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', NULL, NULL, NULL, NULL, NULL),
+(4, 2, 'Test uchun yana   ﻿', 1615128224, 2, 'Akbarali', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', NULL, NULL, NULL, NULL, NULL),
+(5, 2, '[b]Bbcoke tekshirildi   ﻿[/b]', 1615128375, 2, 'Akbarali', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', NULL, NULL, NULL, NULL, NULL),
+(6, 2, '[b]BBcode [/b][i]ishlamoqda [/i][u]xozircha [/u][s]underline [/s]', 1615128618, 1, 'admin', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', NULL, NULL, NULL, NULL, NULL),
+(7, 2, 'assalom   ﻿   ﻿', 1615128682, 1, 'admin', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', NULL, NULL, NULL, NULL, NULL),
+(8, 2, 'test', 1615128686, 1, 'admin', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', NULL, NULL, NULL, NULL, NULL),
+(9, 2, 'sahifalash uchun kerak', 1615128694, 1, 'admin', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', NULL, NULL, NULL, NULL, NULL),
+(10, 2, '1111', 1615128698, 1, 'admin', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', NULL, NULL, NULL, NULL, NULL),
+(11, 2, 'test uchun', 1615129055, 1, 'admin', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -642,7 +663,8 @@ CREATE TABLE `forum_theme` (
 --
 
 INSERT INTO `forum_theme` (`id`, `name`, `user_id`, `time`, `cat_id`, `theme_text`) VALUES
-(1, 'Mavzu nomi', 1, '2021-03-05', 13, 'Test uchun ochilgan mavzu');
+(1, 'Mavzu nomi', 1, '2021-03-05', 13, 'Test uchun ochilgan mavzu'),
+(2, 'Forum ish faoliyatini boshladi', 1, '2021-03-07', 61, 'Forum ish faoliyatini boshladi biz bilan bo`ling');
 
 -- --------------------------------------------------------
 
@@ -708,7 +730,9 @@ CREATE TABLE `guest` (
 --
 
 INSERT INTO `guest` (`id`, `adm`, `time`, `user_id`, `name`, `text`, `ip`, `browser`, `admin`, `otvet`, `otime`, `edit_who`, `edit_time`, `edit_count`) VALUES
-(1, 0, 1614958052, 1, 'admin', 'asasas', 2130706433, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', '', '', 0, '', 0, 0);
+(1, 0, 1614958052, 1, 'admin', 'asasas', 2130706433, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', '', '', 0, '', 0, 0),
+(2, 0, 1615123911, 0, 'Akbarali', 'Salom   ﻿', 2130706433, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', '', '', 0, '', 0, 0),
+(3, 0, 1615124383, 1, 'admin', '[b]salom[/b]', 2130706433, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', '', '', 0, '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -950,7 +974,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `name_lat`, `password`, `rights`, `failed_login`, `imname`, `sex`, `komm`, `postforum`, `postguest`, `yearofbirth`, `datereg`, `lastdate`, `mail`, `icq`, `skype`, `jabber`, `www`, `about`, `live`, `mibile`, `status`, `ip`, `ip_via_proxy`, `browser`, `preg`, `regadm`, `mailvis`, `dayb`, `monthb`, `sestime`, `total_on_site`, `lastpost`, `rest_code`, `rest_time`, `movings`, `place`, `set_user`, `set_forum`, `set_mail`, `karma_plus`, `karma_minus`, `karma_time`, `karma_off`, `comm_count`, `comm_old`, `smileys`, `notification_settings`, `email_confirmed`, `confirmation_code`, `new_email`, `admin_notes`) VALUES
-(1, 'admin', 'admin', '8fe7b187c85c1db5966787ee2062e8a4', 9, 0, '', 'm', 0, 0, 1, 0, 1614869388, 1614959738, 'uzfor@uzhackersw.uz', 0, '', '', 'http://uzfor.loc', '', '', '', '', 2130706433, 0, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', 1, '', 0, 0, 0, 1614957142, 0, 1614958052, '', 0, 19, '/forum/aforizmlar/1', 'a:0:{}', 'a:0:{}', 'a:0:{}', 0, 0, 1614956262, 0, 0, 0, 'a:0:{}', NULL, 1, NULL, NULL, NULL);
+(1, 'admin', 'admin', '8fe7b187c85c1db5966787ee2062e8a4', 9, 0, '', 'm', 0, 0, 2, 0, 1614869388, 1615129214, 'uzfor@uzhackersw.uz', 0, '', '', 'http://uzfor.loc', '', '', '', '', 2130706433, 0, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', 1, '', 0, 0, 0, 1615128585, 0, 1615124383, '', 0, 13, '/forum/forum-haqida/2', 'a:0:{}', 'a:0:{}', 'a:0:{}', 0, 0, 1615123866, 0, 0, 0, 'a:0:{}', NULL, 1, NULL, NULL, NULL),
+(2, 'Akbarali', 'akbarali', '2f3cf17c3dd7dce239ed7e6d0a5b54bc', 0, 0, 'Akbarali', 'm', 0, 0, 0, 0, 1615128085, 1615128411, 'Akbarali@webschool.uz', 0, '', '', '', '', '', '', '', 2130706433, 0, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36', 1, '', 0, 0, 0, 1615128144, 0, 0, '', 0, 9, '/forum/forum-haqida/2', 'a:0:{}', 'a:0:{}', 'a:0:{}', 0, 0, 1615128144, 0, 0, 0, 'a:0:{}', NULL, 1, 'email_6044e6159c1662.24720772', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -1455,7 +1480,7 @@ ALTER TABLE `download__more`
 -- AUTO_INCREMENT for table `email_messages`
 --
 ALTER TABLE `email_messages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `forum_cat`
@@ -1467,7 +1492,7 @@ ALTER TABLE `forum_cat`
 -- AUTO_INCREMENT for table `forum_messages`
 --
 ALTER TABLE `forum_messages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `forum_sections`
@@ -1479,7 +1504,7 @@ ALTER TABLE `forum_sections`
 -- AUTO_INCREMENT for table `forum_theme`
 --
 ALTER TABLE `forum_theme`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `forum_topic`
@@ -1491,7 +1516,7 @@ ALTER TABLE `forum_topic`
 -- AUTO_INCREMENT for table `guest`
 --
 ALTER TABLE `guest`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `karma_users`
@@ -1557,7 +1582,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

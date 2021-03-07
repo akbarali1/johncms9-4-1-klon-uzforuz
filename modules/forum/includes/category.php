@@ -22,7 +22,6 @@ $create_user_info =  $connection->table('users')->where('id', $theme->user_id)->
     ];
 }
 
-
 $data['paginate'] = $forum_theme->render(); 
 
 if (!$forum_theme) {
