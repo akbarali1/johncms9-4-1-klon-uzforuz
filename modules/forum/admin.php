@@ -52,6 +52,10 @@ switch ($act) {
         require 'admin/write.php';
         break;
 
+    case 'yangi':
+        require 'admin/yangi.php';
+        break;
+
     default:
     echo 'default/';
        // header('Location: ../?');

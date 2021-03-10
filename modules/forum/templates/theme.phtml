@@ -67,7 +67,9 @@
         <div class="heart"></div>
       </a>
      <a href="#" onclick="reply_to_post('<?=$data['username']?>')">Javob</a> <span style="color: #BFC6CF;">|</span>  | 
-      <a href="#">Sitata</a> | 
+      <!--
+        <a href="#">Sitata</a> | 
+        -->
       <span><a href="#">#mavzu</a></span>  |
       <time><?=$forum_theme->time?></time><br>
     </div><hr>
@@ -77,6 +79,7 @@
     </div>
   </div>
 
+<?php if ($messages != 'toza'): ?>
 <? foreach ($messages as $message):?>
   <div class="menu" style="border-bottom: 2px solid #e4e8ed;border-radius: 0;padding-top: 10px;" id="izoh90811">
     <a class="delava" href="/id1">
@@ -97,6 +100,7 @@
     </div>
   </div>
 <? endforeach;?>
+<?php endif;?>
 <br>
 <!-- sahiflalash -->
 <?= $data['pagination'] ?>

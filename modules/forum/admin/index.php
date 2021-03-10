@@ -43,6 +43,10 @@ switch ($act) {
         require 'admin/adtheme.php';
         break;
 
+     case 'yangi':
+        require 'admin/adtheme.php';
+        break;
+
     default:
         header('Location: ../?');
         break;

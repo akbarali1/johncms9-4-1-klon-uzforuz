@@ -15,16 +15,23 @@ $create_user_info =  $connection->table('users')->where('id', $forum_theme->user
 
 $tools = di(Johncms\System\Legacy\Tools::class);
 
+if (isset($forum_messages)) {
 foreach ($forum_messages as $message) {
-    $messages[] = [
-        'name' => $message->user_name,
-        'id' => $message->id,
-        'text' => $tools->checkout($message->text, 1, 1),
-        'user_id' => $message->user_id,
-        'date' => $tools->displayDate($message->date),
-    ];
+        # code...
+        $messages[] = [
+            'name' => $message->user_name,
+            'id' => $message->id,
+            'text' => $tools->checkout($message->text, 1, 1),
+            'user_id' => $message->user_id,
+            'date' => $tools->displayDate($message->date),
+        ];
+    }
 }
-
+if (empty($messages)) {
+    $messages = 'toza';
+    # code...
+}
+    
 $data = [
     'title' => $forum_theme->name,
     'forum_theme' => $forum_theme,

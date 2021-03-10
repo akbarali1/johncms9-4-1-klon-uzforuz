@@ -1,0 +1,56 @@
+<?php
+  // Подключаем основной шаблон сайта
+  $this->layout(
+    'system::layout/uzfor',
+    [
+      'title'      => $data['title'], // Передаем заголовок страницы в тег title
+      'page_title' => $data['title'], // Передаем заголовок страницы в тег h1
+    ]
+  );
+
+//  d($data['forum_theme']);
+  ?>
+<div class="maintxt">
+  <div class="menu">
+    <img src="https://uzfor.uz/images/forum.png" style="padding: 0agan mavzulapx; vertical-align: inherit; margin-bottom: -3px; margin-right: 4px;">
+    <a href="https://uzfor.uz/view.php?act=my_lenta"><b>Shaxsiy lenta</b></a>
+  </div>
+  <div class="menu">
+    <img src="https://uzfor.uz/images/forum.png" style="padding: 0agan mavzulapx; vertical-align: inherit; margin-bottom: -3px; margin-right: 4px;">
+    <a href="/getdaily.php"><b>Kunlik xabarlarga o'tish</b></a>
+  </div>
+  <div class="menu">
+    <img src="https://uzfor.uz/images/tick.png" alt="" class="icon" style="padding: 0px; vertical-align: inherit; margin-bottom: -3px; margin-right: 4px;">
+    <a href="https://uzfor.uz/lenta.php?act=oqilgan"><b>Hammasini o'qilgan qilib belgilash</b></a>
+  </div>
+  <div class="phdr"><b>O'qilmagan mavzular (423)</b></div>
+  <?php foreach($data['forum_theme'] as $forum_theme): ?>
+  <div class="topic">
+    <div class="topic__head">
+      <span class="topic__top">
+        <span class="topic__params topic__params_top">
+          <div class="topic__param"><span class="topic__param-text valign_top link-holder_over"><?=$forum_theme->catname?></span></div>
+          <div class="topic__param topic__param_right topic__param_nowrap">
+          </div>
+        </span>
+        <a class="topic__text link-holder" href="<?=$config['homeurl']?>/forum/<?=$forum_theme->cat_code?>/<?=$forum_theme->id?>/">
+        <?=$forum_theme->name?>
+        </a>
+      </span>
+      <span class="topic__content">
+        <span class="topic__params">
+          <div class="topic__param">
+            <span class="topic__param-text valign_top link-holder_over">
+            So'nggi javob: Akbarali <span class="topic__param-time js-ago" style="visibility: visible;">(08:36)</span>
+            </span>
+          </div>
+        </span>
+      </span>    
+      </div>
+    </div>
+    <?php endforeach;?>    
+    </div>
+  </div>
+  <div class="menu" align="center" style="padding-top: 8px; padding-bottom: 8px;">
+  </div>
+</div>
